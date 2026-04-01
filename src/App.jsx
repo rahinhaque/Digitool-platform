@@ -8,6 +8,8 @@ import Pricing from "./Components/Ui/Pricing/Pricing";
 import Workflow from "./Components/Ui/Workflow/Workflow";
 import Footer from "./Components/Ui/Footer/Footer";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -16,11 +18,16 @@ function App() {
   const handleAddToCart = (product) => {
     if (!cartItems.find((item) => item.id === product.id)) {
       setCartItems([...cartItems, product]);
+      toast.success(`${product.name} added to cart!`);
+    } else {
+      toast.warning(`${product.name} is already in the cart!`);
     }
   };
 
   const handleRemoveFromCart = (productId) => {
+    const itemToRemove = cartItems.find((item) => item.id === productId);
     setCartItems(cartItems.filter((item) => item.id !== productId));
+    if (itemToRemove) toast.info(`${itemToRemove.name} removed from cart.`);
   };
 
   const removeAll = () => {
@@ -29,6 +36,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer position="bottom-right" autoClose={3000} />
       <Navbar cartItems={cartItems} />
       <Banner />
       <BannerStats />

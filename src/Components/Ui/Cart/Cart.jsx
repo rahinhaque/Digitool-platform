@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ClipLoader } from 'react-spinners';
+import { toast } from 'react-toastify';
 
-const Cart = ({ cartItems, onRemove ,removeAll}) => {
+const Cart = ({ cartItems, onRemove, removeAll }) => {
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
   const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+
+  const handleCheckout = () => {
+    if (cartItems.length === 0) return;
+    setIsCheckingOut(true);
+    setTimeout(() => {
+      setIsCheckingOut(false);
+      toast.success("Proceeding to checkout successfully!");
+      if (removeAll) removeAll();
+    }, 1500);
+  };
 
   return (
     <div className="border border-purple-300 rounded-lg p-6 md:p-8 max-w-4xl mx-auto w-full bg-white shadow-md">
@@ -35,8 +48,15 @@ const Cart = ({ cartItems, onRemove ,removeAll}) => {
       </div>
       
       <button
-      onClick={removeAll} className="w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold py-3.5 rounded-xl transition-colors duration-200 cursor-pointer shadow-md shadow-violet-200">
-        Proceed To Checkout
+        onClick={handleCheckout} 
+        disabled={isCheckingOut}
+        className="w-full h-[52px] flex justify-center items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-xl transition-colors duration-200 cursor-pointer shadow-md shadow-violet-200 disabled:opacity-75 disabled:cursor-not-allowed"
+      >
+        {isCheckingOut ? (
+          <ClipLoader size={22} color="#ffffff" speedMultiplier={0.8} />
+        ) : (
+          "Proceed To Checkout"
+        )}
       </button>
     </div>
   );

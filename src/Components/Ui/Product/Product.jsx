@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { FiCheck } from "react-icons/fi";
+import { ClipLoader } from "react-spinners";
 
 const Product = ({ product, handleAddToCart }) => {
 
   const [button , setButton] = useState('Buy Now');
+  const [isAdding, setIsAdding] = useState(false);
+
   const handleBuyNow = () => {
     if (button === "Buy Now") {
-      setButton("Added to cart");
-      if (handleAddToCart) handleAddToCart(product);
+      setIsAdding(true);
+      setTimeout(() => {
+        setIsAdding(false);
+        setButton("Added to cart");
+        if (handleAddToCart) handleAddToCart(product);
+      }, 800);
     }
   };
 
@@ -69,14 +76,16 @@ const Product = ({ product, handleAddToCart }) => {
       {/* Button */}
       <button 
         onClick={handleBuyNow}
-        disabled={button === "Added to cart"}
-        className={`w-full py-3 px-4 rounded-xl font-semibold text-white transition-colors duration-200 mt-auto shadow-md cursor-pointer ${
-          button === "Buy Now"
+        disabled={button === "Added to cart" || isAdding}
+        className={`w-full h-[52px] flex justify-center items-center py-3 px-4 rounded-xl font-semibold text-white transition-colors duration-200 mt-auto shadow-md cursor-pointer disabled:cursor-not-allowed ${
+          button === "Buy Now" && !isAdding
             ? "bg-violet-600 hover:bg-violet-700 shadow-violet-200"
-            : "bg-emerald-500 hover:bg-emerald-600 shadow-emerald-200"
+            : button === "Added to cart" 
+            ? "bg-emerald-500 hover:bg-emerald-600 shadow-emerald-200"
+            : "bg-violet-500 opacity-80 shadow-violet-200"
         }`}
       >
-        {button}
+        {isAdding ? <ClipLoader size={20} color="#ffffff" speedMultiplier={0.8} /> : button}
       </button>
     </div>
   );
