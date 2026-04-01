@@ -1,0 +1,85 @@
+import img1 from "../../../assets/products/writing_2327400 1.png";
+import img2 from "../../../assets/products/design-tool.png";
+import img3 from "../../../assets/products/portfolio.png";
+import img4 from "../../../assets/products/operation.png";
+import img5 from "../../../assets/products/portfolio.png";
+import img6 from "../../../assets/products/social-media.png";
+
+export const productsData = [
+  {
+    id: 1,
+    name: "AI Writing Pro",
+    description:
+      "Generate high-quality content, blogs, and marketing copy in seconds with advanced AI.",
+    price: 29,
+    period: "/Mo",
+    tag: "Best Seller",
+    tagType: "bestSeller",
+    features: [
+      "Unlimited AI generations",
+      "50+ writing templates",
+      "Grammar checker",
+    ],
+    icon: img1,
+  },
+  {
+    id: 2,
+    name: "Design Templates Pack",
+    description:
+      "2000+ premium templates for social media, presentations, and marketing materials.",
+    price: 49,
+    period: "/One-Time",
+    tag: "Popular",
+    tagType: "popular",
+    features: ["2000+ templates", "Monthly updates", "Commercial license"],
+    icon: img2,
+  },
+  {
+    id: 3,
+    name: "Premium Stock Assets",
+    description:
+      "Access millions of royalty-free photos, videos, and graphics for your projects.",
+    price: 19,
+    period: "/Mo",
+    tag: "New",
+    tagType: "new",
+    features: ["10M+ assets", "Commercial use", "No attribution"],
+    icon: img3,
+  },
+  {
+    id: 4,
+    name: "Automation Toolkit",
+    description:
+      "Automate repetitive tasks and streamline your workflow with powerful tools.",
+    price: 79,
+    period: "/Mo",
+    tag: "Popular",
+    tagType: "popular",
+    features: ["50+ automations", "API access", "Custom workflows"],
+    icon: img4,
+  },
+  {
+    id: 5,
+    name: "Resume Builder Pro",
+    description:
+      "Create professional resumes and cover letters that land interviews.",
+    price: 15,
+    period: "/One-Time",
+    tag: "New",
+    tagType: "new",
+    features: ["100+ templates", "ATS optimization", "Export to PDF"],
+    icon: img5,
+  },
+  {
+    id: 6,
+    name: "Social Media Content Kit",
+    description:
+      "Complete toolkit for creating engaging social media content across all platforms.",
+    price: 39,
+    period: "/Mo",
+    tag: "Best Seller",
+    tagType: "bestSeller",
+    features: ["5000+ assets", "Scheduler included", "Analytics dashboard"],
+    icon: img6,
+  },
+];

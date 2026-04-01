@@ -1,7 +1,7 @@
 import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
 
-const Navbar = () => {
+const Navbar = ({  cartItems }) => {
   const navLinks = ["Products", "Features", "Pricing", "Testimonials", "FAQ"];
 
   return (
@@ -38,6 +38,11 @@ const Navbar = () => {
               aria-label="Cart"
             >
               <FiShoppingCart className="w-5 h-5" />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                  {cartItems.length}
+                </span>
+              )}
             </button>
 
             {/* Login */}
@@ -109,6 +114,11 @@ const Navbar = () => {
                     className="text-gray-600 flex items-center gap-2"
                   >
                     <FiShoppingCart className="w-4 h-4" /> Cart
+                    {cartItems.length > 0 && (
+                      <span className="bg-rose-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full ml-auto">
+                        {cartItems.length}
+                      </span>
+                    )}
                   </a>
                 </li>
                 <li className="mt-2">
