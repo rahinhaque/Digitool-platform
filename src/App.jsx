@@ -4,6 +4,8 @@ import Banner from "./Components/Ui/Banner/Banner";
 import BannerStats from "./Components/Ui/BannerStats/BannerStats";
 import PremiumTools from "./Components/Ui/PremiumTools/PremiumTools";
 import Steps from "./Components/Ui/Steps/Steps";
+import Pricing from "./Components/Ui/Pricing/Pricing";
+import Workflow from "./Components/Ui/Workflow/Workflow";
 import { useState } from "react";
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
         removeAll={removeAll}
       />
       <Steps />
+      <Pricing />
+      <Workflow />
     </>
   );
 }
