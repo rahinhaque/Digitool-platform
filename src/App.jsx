@@ -6,6 +6,7 @@ import PremiumTools from "./Components/Ui/PremiumTools/PremiumTools";
 import Steps from "./Components/Ui/Steps/Steps";
 import Pricing from "./Components/Ui/Pricing/Pricing";
 import Workflow from "./Components/Ui/Workflow/Workflow";
+import Footer from "./Components/Ui/Footer/Footer";
 import { useState } from "react";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
       <Steps />
       <Pricing />
       <Workflow />
+      <Footer />
     </>
   );
 }
