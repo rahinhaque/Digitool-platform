@@ -3,6 +3,7 @@ import Navbar from "./Components/Ui/Navbar/Navbar";
 import Banner from "./Components/Ui/Banner/Banner";
 import BannerStats from "./Components/Ui/BannerStats/BannerStats";
 import PremiumTools from "./Components/Ui/PremiumTools/PremiumTools";
+import Steps from "./Components/Ui/Steps/Steps";
 import { useState } from "react";
 
 function App() {
@@ -23,19 +24,20 @@ function App() {
     setCartItems([]);
   };
 
-  return <>
-
-      <Navbar cartItems={cartItems}/>
-      <Banner/>
-      <BannerStats/>
-      <PremiumTools 
-        cartItems={cartItems} 
-        handleAddToCart={handleAddToCart} 
-        handleRemoveFromCart={handleRemoveFromCart} 
-        removeAll={removeAll} 
+  return (
+    <>
+      <Navbar cartItems={cartItems} />
+      <Banner />
+      <BannerStats />
+      <PremiumTools
+        cartItems={cartItems}
+        handleAddToCart={handleAddToCart}
+        handleRemoveFromCart={handleRemoveFromCart}
+        removeAll={removeAll}
       />
-
-  </>;
+      <Steps />
+    </>
+  );
 }
 
 export default App;
